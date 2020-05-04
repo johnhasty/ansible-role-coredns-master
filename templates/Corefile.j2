@@ -1,0 +1,15 @@
+(metrics) {
+  prometheus 0.0.0.0:9135
+  errors
+}
+.:53 {
+  auto {
+    directory /opt/coredns db\.(.*) {1}
+    {% for item in slave_ips %}
+    transfer to {{ item }}
+    {% endfor %}
+    reload 15s
+  }
+  any
+  import metrics
+}

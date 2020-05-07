@@ -1,2 +1,2 @@
-# coredns-master
+# CoreDNS Master NS Server Role
 
